@@ -18,5 +18,12 @@ public class analyserTest {
         analyserMain am = new analyserMain("I am in any mood");   
         assertEquals("HAPPY",am.analyseMood());
     }
+	
+	@Test
+	public void test_Given_NUll_returns_HAPPY()
+	{
+		analyserMain am = new analyserMain(null);   
+        assertEquals("HAPPY",am.analyseMood());
+	}
 
 }

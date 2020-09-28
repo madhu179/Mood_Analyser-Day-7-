@@ -14,6 +14,7 @@ public class analyserMain {
 	}
 
 	public String analyseMood()  {
+		try {
 		if(msg.contains("sad"))
 		{
 		return "SAD";
@@ -23,6 +24,11 @@ public class analyserMain {
 		{
 		return "HAPPY";
 		}	
+		}catch(NullPointerException e)
+		{
+			return "HAPPY";
+		}
+		
 	}
 
 }
