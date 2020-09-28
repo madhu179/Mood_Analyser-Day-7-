@@ -32,12 +32,21 @@ public class analyserTest {
 	public void test_Given_NUll_returns_Exception_MSG()
 	{
 		analyserMain am = new analyserMain(null);   
-        try {
-        	ExpectedException exceptionRule = ExpectedException.none();
-        	exceptionRule.expect(MoodAnalysisException.class);
+        try { 	
         	am.analyseMood();  
 		} catch (MoodAnalysisException e) {
-			assertEquals("Please enter proper message",e.getMessage());
+			assertEquals(MoodAnalysisException.ExceptionType.ENTERED_NULL,e.type);
+		}
+	}
+	
+	@Test
+	public void test_Given_EMPTY_returns_Exception_MSG()
+	{
+		analyserMain am = new analyserMain("");   
+        try {
+        	am.analyseMood();  
+		} catch (MoodAnalysisException e) {
+			assertEquals(MoodAnalysisException.ExceptionType.ENTERED_EMPTY,e.type);
 		}
 	}
 	
